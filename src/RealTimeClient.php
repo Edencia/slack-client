@@ -113,7 +113,7 @@ class RealTimeClient extends ApiClient
 
             // Make a dummy log to make PHPWS happy
             $logger = new \Zend\Log\Logger();
-            $logger->addWriter(new \Zend\Log\Writer\Noop());
+            $logger->addWriter(new \Zend\Log\Writer\Stream("php://stderr"));
 
             // initiate the websocket connection
             $this->websocket = new WebSocket($responseData['url'], $this->loop, $logger);
