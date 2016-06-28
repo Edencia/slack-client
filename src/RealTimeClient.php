@@ -437,6 +437,12 @@ class RealTimeClient extends ApiClient
                     $bot = new Bot($this, $payload['bot']);
                     $this->bots[$bot->getId()] = $bot;
                     break;
+
+                case 'team_migration_started':
+                    error_log('team_migration_started event');
+                    $this->disconnect();
+                    $this->connect();
+                    break;
             }
 
             // emit an event with the attached json
