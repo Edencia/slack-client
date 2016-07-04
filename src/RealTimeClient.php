@@ -123,6 +123,8 @@ class RealTimeClient extends ApiClient
 
             $this->websocket->on('close', function () use ($logger) {
                 $logger->err('websocket just closed');
+                $this->disconnect();
+                $this->emit('close');
             });
 
             return $this->websocket->open();
