@@ -450,9 +450,7 @@ class RealTimeClient extends ApiClient
                     break;
 
                 case 'team_migration_started':
-                    error_log('team_migration_started event');
                     $this->disconnect();
-                    $this->connect();
                     break;
             }
 
